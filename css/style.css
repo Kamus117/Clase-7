@@ -2,19 +2,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Gentium+Plus:ital,wght@0,400;0,700;1,400;1,700&family=Kalnia:wght@100..700&display=swap');
 
 /* Normalize */
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-a{
+a {
     text-decoration: none;
     color: var(--col-primary);
 }
 
 /* Variables */
-:root{
+:root {
     /* Fonts */
     --font-text: 'Gentium Plus', serif;
     --font-title: 'Kalnia', serif;
@@ -23,10 +23,10 @@ a{
     --col-primary: #fff;
     --col-secondary: #000;
 
-    --col-A:#265073;
-    --col-B:#2D9596;
-    --col-C:#9AD0C2;
-    --col-D:#F1FADA;
+    --col-A: #265073;
+    --col-B: #2D9596;
+    --col-C: #9AD0C2;
+    --col-D: #F1FADA;
 
     /* Gradient */
     --gradient-1: linear-gradient(90deg, var(--col-A) 0%, var(--col-B) 100%) fixed center no-repeat;
@@ -35,79 +35,112 @@ a{
 
 /* Animaciones */
 @keyframes titulos {
-    0%{
+    0% {
         transform: translateX(-100%);
     }
 
-    50%{
+    50% {
         transform: scale(1.5);
     }
 
-    100%{
+    100% {
         transform: translateX(0);
     }
 }
 
 @keyframes fade-in {
-    0%{
+    0% {
         opacity: 0;
     }
-    100%{
+
+    100% {
         opacity: 1;
+    }
+}
+
+@keyframes navbar{
+    0%{
+        transform: translateX(100%);
     }
 }
 
 
 /* Body */
 
-    body{
-        color: var(--col-primary);
-        font-family: var(--font-text);
-        background: var(--gradient-1)
-    }
-
-/* Header */
-    header{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        position: fixed;
-        top: 0;
-        width: 100%;
-
-        height: 100px;
-        padding: 0 30px;
-        background: var(--col-A);
-
-        box-shadow: 0 0 10px var(--col-B);
-    }
-
-    header h1{
-        font-family: var(--font-title);
-        font-size: 2rem;
-        text-shadow: 0 0 10px var(--col-B);
-
-        animation: fade-in ease-in;
-        animation-duration: 1s;
-    }
-
-    header i{
-        font-size: 1.5rem;
-    }
-
-    header i:hover{
-        cursor: pointer;
-        text-shadow: 0 0 10px var(--col-B);
-        transition: 0.5s;
-    }
-
-/* Main */
-main{
-    margin-top: 100px;
+body {
+    color: var(--col-primary);
+    font-family: var(--font-text);
+    background: var(--gradient-1)
 }
 
-.intro{
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: fixed;
+    top: 0;
+    width: 100%;
+
+    height: 100px;
+    padding: 0 30px;
+    background: var(--col-A);
+
+    box-shadow: 0 0 10px var(--col-B);
+}
+
+header h1 {
+    font-family: var(--font-title);
+    font-size: 2rem;
+    text-shadow: 0 0 10px var(--col-B);
+
+    animation: fade-in ease-in;
+    animation-duration: 1s;
+    text-align: center;
+
+    z-index: 0;
+}
+
+#check-menu {
+    display: none;
+}
+
+.bars-icon {
+    font-size: 1.5rem;
+    display: none;
+}
+
+header i:hover {
+    cursor: pointer;
+    text-shadow: 0 0 10px var(--col-B);
+    transition: 0.5s;
+}
+
+.navbar {
+    display: flex;
+    column-gap: 25px;
+}
+
+.navbar a {
+    font-size: 1.7rem;
+}
+
+.navbar a:hover {
+    text-shadow: 0 0 10px var(--col-B);
+    transition: 0.5s;
+}
+
+/* Main */
+main {
+    position: relative;
+    margin-top: 100px;
+    z-index: -1;
+}
+
+
+/* Intro */
+.intro {
     height: calc(100vh - 100px);
     display: flex;
     align-items: center;
@@ -117,13 +150,13 @@ main{
     background-size: cover;
 }
 
-.intro-filter{
+.intro-filter {
     height: 100%;
     width: 100%;
     background-color: #0000009a;
 }
 
-.intro h1{
+.intro h1 {
     position: absolute;
     font-size: 4rem;
     width: 50%;
@@ -131,13 +164,12 @@ main{
 
     animation: ease-out;
     animation-name: titulos;
-    animation-duration: 1s ;
-
+    animation-duration: 1s;
 }
 
 
 /* Footer */
-footer{
+footer {
     background: var(--col-A);
     display: flex;
     justify-content: center;
@@ -146,17 +178,17 @@ footer{
     padding: 20px 0;
 }
 
-.footer-links{
+.footer-links {
     display: flex;
-    justify-content:center;
+    justify-content: center;
     column-gap: 40px;
 }
 
-.footer-links a{
+.footer-links a {
     font-size: 2rem;
 }
 
-.footer-links a:hover{
+.footer-links a:hover {
     text-shadow: 0 0 10px var(--col-B);
     transition: 0.5s;
 
@@ -164,5 +196,36 @@ footer{
 }
 
 
-
 /* Media Queries */
+
+@media screen and (max-width: 480px) {
+    .bars-icon {
+        display: block;
+    }
+    
+    #check-menu:checked ~ .navbar {
+        display: flex;
+    }
+    
+    .navbar{
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 100px;
+        padding: 20px 40px;
+        
+        border-radius:0 0 0 20px ;
+        background-color: var(--col-A);
+        
+        flex-flow: column;
+        row-gap: 15px;
+        z-index: 3;
+
+        animation: navbar ease-in;
+        animation-duration: 0.4s;
+    }
+
+    .intro h1 {
+        font-size: 2.2rem;
+    }
+}
