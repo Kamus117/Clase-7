@@ -168,6 +168,55 @@ main {
 }
 
 
+/* Cards */
+.cards-container {
+    display: flex;
+    justify-content: center;
+
+    padding: 40px 0;
+}
+
+.card{
+    width: 350px;
+    height: 450px;
+
+    background: url(https://seguros.lacaja.com.ar/sites/default/files/bloques_custom/thumb6.jpg) center no-repeat;
+    background-size: cover;
+
+    display: flex;
+    align-items: flex-end;
+}
+
+.card:hover{
+    box-shadow: 0 0 15px rgb(255, 0, 0);
+
+    border-radius: 20px;
+}
+
+.card div{
+    background-color: #ffffff9f;
+    color: var(--col-secondary);
+    padding: 25px;
+
+    display: flex;
+    flex-flow: column;
+    row-gap: 15px;
+}
+
+.card div b{
+    font-size: 1.5rem;
+}
+
+.card div button{
+    background: transparent;
+    padding: 10px 25px;
+    border: 1px solid rgb(184, 7, 7);
+    color: rgb(162, 5, 5);
+    font-size: 1rem;
+    width: fit-content;
+}
+
+
 /* Footer */
 footer {
     background: var(--col-A);
